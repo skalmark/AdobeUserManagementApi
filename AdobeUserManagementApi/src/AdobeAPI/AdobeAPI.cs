@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AdobeUserManagementApi.src.Models;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -33,11 +34,27 @@ namespace AdobeUserManagementApi.src.AdobeAPI
 
         internal async Task<T> GetAdobeDataAsync<T>(string url, CancellationToken cancellationtoken)
         {
-
-            //await CheckToken();
             var response = await _httpClient.GetAsync($"/v2/usermanagement/organizations/{_adobeOrgID}/{url}", cancellationtoken);
 
             return ResponseReturn<T>(response);
+
+        }
+
+        internal async Task<AdobePostResponse> PostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
+        {
+
+            var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}?testOnly=true", content, cancellationtoken);
+
+            return ResponseReturn<AdobePostResponse>(response);
+
+        }
+
+        internal async Task<AdobePostResponse> TestPostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
+        {
+           
+            var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}?testOnly=true", content, cancellationtoken);
+
+            return ResponseReturn<AdobePostResponse>(response);
 
         }
 

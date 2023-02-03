@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.src.Models
 {
-    public class AdobeResponse
+    public class AdobePostResponse
     {
-        public int Completed { get; set; }
-        public int NotCompleted { get; set; }
-        public int CompletedInTestMode { get; set; }
-        public string Result { get; set; }
-        public List<AdobeError> Errors { get; set; }
+        public int Completed { get;  }
+        public int NotCompleted { get;  }
+        public int CompletedInTestMode { get; }
+        public string Result { get;  }
+        public List<AdobeError> Errors { get; }
     }
 }

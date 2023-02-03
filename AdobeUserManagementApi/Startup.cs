@@ -1,7 +1,9 @@
 ﻿using AdobeUserManagementApi.src.AdobeAPI;
+using AdobeUserManagementApi.src.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
@@ -13,9 +15,9 @@ namespace AdobeUserManagementApi
 {
     public static class Startup
     {
-        public static IServiceCollection AddAdobeManagmentAPI(this IServiceCollection services, X509Certificate2 certificate)
+        public static IServiceCollection AddAdobeManagmentAPI([NotNull]this IServiceCollection services, [NotNull] Action<IGlobalConfiguration> configuration)
         {
-           
+            if(configuration.)
 
             return services;
         }
