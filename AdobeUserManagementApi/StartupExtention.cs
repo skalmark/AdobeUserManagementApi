@@ -51,7 +51,7 @@ namespace AdobeUserManagementApi
                 TechAccountID= _techAccountID,
                 AdobeCertificate= AdobeCertificate
             };
-            return  configuration.SetAdobeTokenSettings(storage);
+            return (IGlobalConfiguration<AdobeTokenSettings>)storage;
         }
     }
 }

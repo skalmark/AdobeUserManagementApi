@@ -15,12 +15,11 @@ namespace AdobeUserManagementApi
 {
     public static class Startup
     {
-        public static IServiceCollection AddAdobeManagmentAPI([NotNull] this IServiceCollection services, [NotNull] Action<IGlobalConfiguration> configuration)
+        public static IServiceCollection AddAdobeManagmentAPI([NotNull] this IServiceCollection services, [NotNull] Action<AdobeTokenSettings> configuration)
         {
-            return services.AddAdobeManagmentAPI(delegate (IServiceProvider provider, IGlobalConfiguration config)
-            {
-                configuration(config);
-            });
+
+
+            return services;
         }
 
         public static IServiceCollection AddAdobeManagmentAPI(this IServiceCollection services, string adobeOrgID, string adobeClientID, X509Certificate2 certificate)
