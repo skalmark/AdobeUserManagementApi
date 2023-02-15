@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Tests\" />
     <Folder Include="src\Calls\FederatedUser\" />
     <Folder Include="src\Calls\EnterpriseUser\" />
     <Folder Include="src\Calls\AdobeUser\" />

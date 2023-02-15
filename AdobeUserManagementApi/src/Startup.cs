@@ -1,6 +1,7 @@
 ﻿using AdobeUserManagementApi.src.AdobeAPI;
 using AdobeUserManagementApi.src.Models;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -15,9 +16,22 @@ namespace AdobeUserManagementApi
 {
     public static class Startup
     {
-        public static IServiceCollection AddAdobeManagmentAPI([NotNull] this IServiceCollection services, [NotNull] Action<AdobeTokenSettings> configuration)
+        public static IServiceCollection AddAdobeManagmentAPI([NotNull] this IServiceCollection services)
         {
 
+
+            return services;
+        }
+
+        public static IServiceCollection AddAdobeManagmentAPI([NotNull] this IServiceCollection services, [NotNull] Action<AdobeTokenSettings> configuration)
+        {
+            services.Configure(configuration);
+            services.AddHttpClient<AdobeAPI>(HttpClient =>
+            {
+                HttpClient.BaseAddress = new Uri("https://usermanagement.adobe.io");
+                HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                //HttpClient.DefaultRequestHeaders.Add("X-Api-Key", );
+            });
 
             return services;
         }

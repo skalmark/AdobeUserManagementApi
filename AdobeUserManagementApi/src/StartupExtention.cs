@@ -7,16 +7,15 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi
+namespace AdobeUserManagementApi.src
 {
-    public static class StartupExtention
+    public static class ExtendStartup
     {
-        public static IGlobalConfiguration<AdobeTokenSettings> SetAdobeTokenSettings([NotNull] this IGlobalConfiguration configuration,
-            [NotNull] string _clientid,
+        public static AdobeTokenSettings SetAdobeTokenSettings([NotNull] string _clientid,
             [NotNull] string _clientSecret,
             [NotNull] string _orgID,
             [NotNull] string _techAccountID,
-            [NotNull]X509Certificate2 AdobeCertificate)
+            [NotNull] X509Certificate2 AdobeCertificate)
         {
             if (_clientSecret == null)
             {
@@ -43,15 +42,14 @@ namespace AdobeUserManagementApi
                 throw new ArgumentNullException("AdobeCertificate");
             }
 
-            AdobeTokenSettings storage = new AdobeTokenSettings
-                {
+            return new AdobeTokenSettings
+            {
                 Clientid = _clientid,
                 ClientSecret = _clientSecret,
-                OrgID= _orgID,
-                TechAccountID= _techAccountID,
-                AdobeCertificate= AdobeCertificate
+                OrgID = _orgID,
+                TechAccountID = _techAccountID,
+                AdobeCertificate = AdobeCertificate
             };
-            return (IGlobalConfiguration<AdobeTokenSettings>)storage;
         }
     }
 }

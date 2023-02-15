@@ -43,7 +43,7 @@ namespace AdobeUserManagementApi.src.AdobeAPI
         internal async Task<AdobePostResponse> PostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
         {
 
-            var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}?testOnly=true", content, cancellationtoken);
+            var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}", content, cancellationtoken);
 
             return ResponseReturn<AdobePostResponse>(response);
 
