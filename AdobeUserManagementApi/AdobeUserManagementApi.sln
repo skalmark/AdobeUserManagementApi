@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdobeUserManagementApi", "AdobeUserManagementApi.csproj", "{119DE704-6CD4-4935-9FB7-3107D371781E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdobeUserManagementApi", "AdobeUserManagementApi.csproj", "{119DE704-6CD4-4935-9FB7-3107D371781E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E004F5CF-65C5-45B9-9F51-1AE4B9467BED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A502996-A73B-4E2B-9610-D89E74F2415B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{20CBD7D5-6955-42DD-80C1-BC5E2ED7152F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{119DE704-6CD4-4935-9FB7-3107D371781E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119DE704-6CD4-4935-9FB7-3107D371781E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119DE704-6CD4-4935-9FB7-3107D371781E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CBD7D5-6955-42DD-80C1-BC5E2ED7152F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CBD7D5-6955-42DD-80C1-BC5E2ED7152F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CBD7D5-6955-42DD-80C1-BC5E2ED7152F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CBD7D5-6955-42DD-80C1-BC5E2ED7152F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{119DE704-6CD4-4935-9FB7-3107D371781E} = {4A502996-A73B-4E2B-9610-D89E74F2415B}
+		{20CBD7D5-6955-42DD-80C1-BC5E2ED7152F} = {E004F5CF-65C5-45B9-9F51-1AE4B9467BED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C86076D6-F934-4E8E-A02F-29735E9ECA1B}
