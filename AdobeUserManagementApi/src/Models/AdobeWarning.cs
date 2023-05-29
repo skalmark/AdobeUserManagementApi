@@ -1,25 +1,20 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace AdobeUserManagementApi.src.Models
 {
     public class AdobeWarning
     {
-        [JsonProperty("warningCode")]
-        public string WarningCode { get;  }
-        [JsonProperty("requestID")]
-        public string RequestID { get; }
-        [JsonProperty("index")]
+        [JsonPropertyName("warningCode")]
+        public string? WarningCode { get;  }
+        [JsonPropertyName("requestID")]
+        public string? RequestID { get; }
+        [JsonPropertyName("index")]
         public int Index { get; }
-        [JsonProperty("step")]
+        [JsonPropertyName("step")]
         public int Step { get; }
-        [JsonProperty("message")]
-        public string Message { get; }
-        [JsonProperty("user")]
-        public string User { get; }
+        [JsonPropertyName("message")]
+        public string? Message { get; }
+        [JsonPropertyName("user")]
+        public string? User { get; }
     }
 }

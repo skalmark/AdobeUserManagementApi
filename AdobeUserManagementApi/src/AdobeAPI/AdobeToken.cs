@@ -1,5 +1,6 @@
 ﻿using Jose;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,15 @@ namespace AdobeUserManagementApi.src.AdobeAPI
 {
     public class AdobeToken
     {
+        private const string _baseUrl = "https://ims-na1.adobelogin.com/ims/token/v3?client_id=";
+
         private readonly IConfiguration _configuration;
-        private readonly X509Certificate2 _certificate;
+        private readonly ILogger<AdobeToken> _logger;
         public HttpClient _httpClient { get; }
-        public AdobeToken(HttpClient httpClient, IConfiguration configuration, X509Certificate2 certificate)
+        public AdobeToken(HttpClient httpClient, IConfiguration configuration, ILogger<AdobeToken> logger)
         {
             _httpClient = httpClient;
             _configuration = configuration;
-            _certificate = certificate;
         }
 
         internal async Task<string> GetAdobeToken()
@@ -42,26 +44,7 @@ namespace AdobeUserManagementApi.src.AdobeAPI
            
         }
 
-        private string GenereateAdobeAuthJWTToken(X509Certificate2 certificate)
-        {
-            Dictionary<object, object> AdobeApisettings = new Dictionary<object, object>
-            {
-                { "exp", DateTimeOffset.Now.ToUnixTimeSeconds() + 600 },
-                { "iss", _configuration["AdobeAPI:OrgID"] },
-                { "sub", _configuration["AdobeAPI:TechAccountID"] },
-                { "aud", "https://ims-na1.adobelogin.com/c/" + _configuration["AdobeAPI:ClientID"] }
-            };
-            string[] scopes = "https://ims-na1.adobelogin.com/s/ent_user_sdk".Split(',');
 
-
-            foreach (string scope in scopes)
-            {
-                AdobeApisettings.Add(scope, true);
-            }
-
-
-            return JWT.Encode(AdobeApisettings, certificate.GetRSAPrivateKey(), JwsAlgorithm.RS256);
-        }
 
         public class Token
         {

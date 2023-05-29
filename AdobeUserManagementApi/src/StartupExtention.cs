@@ -11,45 +11,30 @@ namespace AdobeUserManagementApi.src
 {
     public static class ExtendStartup
     {
-        public static AdobeTokenSettings SetAdobeTokenSettings([NotNull] string _clientid,
-            [NotNull] string _clientSecret,
-            [NotNull] string _orgID,
-            [NotNull] string _techAccountID,
-            [NotNull] X509Certificate2 AdobeCertificate)
+        public static AdobeTokenSettings SetAdobeTokenSettings(this AdobeTokenSettings adobeTokenSettings)
         {
-            if (_clientSecret == null)
+            if (adobeTokenSettings.ClientSecret == null)
             {
                 throw new ArgumentNullException("configuration");
             }
 
-            if (_orgID == null)
+            if (adobeTokenSettings.OrgID == null)
             {
                 throw new ArgumentNullException("nameOrConnectionString");
             }
 
-            if (_orgID == null)
+            if (adobeTokenSettings.ClientSecret == null)
             {
                 throw new ArgumentNullException("nameOrConnectionString");
             }
 
-            if (_techAccountID == null)
+            if (adobeTokenSettings.TechAccountID == null)
             {
                 throw new ArgumentNullException("nameOrConnectionString");
             }
 
-            if (AdobeCertificate == null)
-            {
-                throw new ArgumentNullException("AdobeCertificate");
-            }
 
-            return new AdobeTokenSettings
-            {
-                Clientid = _clientid,
-                ClientSecret = _clientSecret,
-                OrgID = _orgID,
-                TechAccountID = _techAccountID,
-                AdobeCertificate = AdobeCertificate
-            };
+            return adobeTokenSettings;
         }
     }
 }

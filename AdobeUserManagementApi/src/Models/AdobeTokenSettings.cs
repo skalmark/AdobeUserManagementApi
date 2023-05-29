@@ -9,10 +9,9 @@ namespace AdobeUserManagementApi.src.Models
 {
     public class AdobeTokenSettings
     {
-        public string Clientid { get; set; }
-        public string ClientSecret { get; set; }
-        public string OrgID { get; set; }
-        public string TechAccountID { get; set; }
-        public X509Certificate2 AdobeCertificate { get; set; }  
+        public string? Clientid { get; set; }
+        public string? ClientSecret { get; set; }
+        public string? OrgID { get; set; }
+        public string? TechAccountID { get; set; }
     }
 }

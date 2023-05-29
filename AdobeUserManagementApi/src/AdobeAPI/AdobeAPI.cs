@@ -49,7 +49,7 @@ namespace AdobeUserManagementApi.src.AdobeAPI
 
         }
 
-        internal async Task<AdobePostResponse> TestPostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
+        internal async Task<AdobePostResponse?> TestPostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
         {
            
             var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}?testOnly=true", content, cancellationtoken);
@@ -58,7 +58,7 @@ namespace AdobeUserManagementApi.src.AdobeAPI
 
         }
 
-        private static T ResponseReturn<T>(HttpResponseMessage httpResponseMessage)
+        private static T? ResponseReturn<T>(HttpResponseMessage httpResponseMessage)
         {
             if (httpResponseMessage.IsSuccessStatusCode)
             {
