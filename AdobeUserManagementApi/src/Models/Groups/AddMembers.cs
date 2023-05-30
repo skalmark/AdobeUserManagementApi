@@ -15,7 +15,11 @@ namespace AdobeUserManagementApi.src.Models.Groups
         
     public class AddMembers
     {
+        public AddMembers(List<string> members)
+        {
+            Members = members;
+        }
         [JsonPropertyName("user")]
-        public List<string> Members { get; set; }
+        public List<string> Members { get; }
     }
 }

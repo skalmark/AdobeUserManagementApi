@@ -8,5 +8,6 @@ namespace AdobeUserManagementApi.src.Requests.Groups
 {
     public class GetAllGroups
     {
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.src.Requests.Groups
 {
-    internal class CreateGroup
+    public class CreateGroup
     {
     }
 }

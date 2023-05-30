@@ -11,7 +11,7 @@ namespace AdobeUserManagementApi.src.Models
         public int Completed { get;  }
         public int NotCompleted { get;  }
         public int CompletedInTestMode { get; }
-        public string? Result { get;  }
+        public string Result { get;  }
         public List<AdobeError>? Errors { get; }
     }
 }

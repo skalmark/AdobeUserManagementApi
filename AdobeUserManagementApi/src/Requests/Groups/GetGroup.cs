@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.src.Calls.Groups
+namespace AdobeUserManagementApi.src.Requests.Groups
 {
     internal class GetGroup
     {
