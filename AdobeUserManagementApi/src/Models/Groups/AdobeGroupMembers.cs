@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.src.Models.Groups
 {
-    internal class AdobeGroupMembers
+    public class UpdateGroupMembers<T> : AdobeDoModel<T> where T : class
     {
+        public string Usergroup { get; set; }
     }
 }

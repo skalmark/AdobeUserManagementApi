@@ -11,28 +11,19 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.src.AdobeAPI
 {
-    public class AdobeAPI
+    public class AdobeAPI : IAdobeAPI
     {
         private readonly string _adobeOrgID;
 
         public HttpClient _httpClient { get; }
 
-        public AdobeAPI(HttpClient httpClient, IConfiguration configuration, ILogger<AdobeAPI> logger)
-        {
-            _httpClient = httpClient;
-            _adobeOrgID = configuration["AdobeAPI:OrgID"];
-            httpClient.BaseAddress = new Uri(configuration["AdobeAPI:uri"]);
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            httpClient.DefaultRequestHeaders.Add("X-Api-Key", configuration["AdobeAPI:ClientID"]);
-        }
-
-        public AdobeAPI(HttpClient httpClient, string adobeOrgID, ILogger<AdobeAPI> logger) 
+        public AdobeAPI(HttpClient httpClient, string adobeOrgID, ILogger<AdobeAPI> logger)
         {
             _httpClient = httpClient;
             _adobeOrgID = adobeOrgID;
         }
 
-        internal async Task<T> GetAdobeDataAsync<T>(string url, CancellationToken cancellationtoken)
+        public async Task<T> GetAdobeDataAsync<T>(string url, CancellationToken cancellationtoken)
         {
             var response = await _httpClient.GetAsync($"/v2/usermanagement/organizations/{_adobeOrgID}/{url}", cancellationtoken);
 
@@ -40,7 +31,7 @@ namespace AdobeUserManagementApi.src.AdobeAPI
 
         }
 
-        internal async Task<AdobePostResponse> PostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
+        public async Task<AdobePostResponse> PostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
         {
 
             var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}", content, cancellationtoken);
@@ -49,9 +40,9 @@ namespace AdobeUserManagementApi.src.AdobeAPI
 
         }
 
-        internal async Task<AdobePostResponse?> TestPostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
+        public async Task<AdobePostResponse?> TestPostAdobeAsync(HttpContent content, CancellationToken cancellationtoken)
         {
-           
+
             var response = await _httpClient.PostAsync($"/v2/usermanagement/action/{_adobeOrgID}?testOnly=true", content, cancellationtoken);
 
             return ResponseReturn<AdobePostResponse>(response);

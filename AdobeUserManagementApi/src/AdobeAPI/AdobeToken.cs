@@ -1,5 +1,4 @@
-﻿using Jose;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,22 +14,20 @@ namespace AdobeUserManagementApi.src.AdobeAPI
     {
         private const string _baseUrl = "https://ims-na1.adobelogin.com/ims/token/v3?client_id=";
 
-        private readonly IConfiguration _configuration;
         private readonly ILogger<AdobeToken> _logger;
         public HttpClient _httpClient { get; }
-        public AdobeToken(HttpClient httpClient, IConfiguration configuration, ILogger<AdobeToken> logger)
+        public AdobeToken(HttpClient httpClient, ILogger<AdobeToken> logger)
         {
             _httpClient = httpClient;
-            _configuration = configuration;
         }
 
         internal async Task<string> GetAdobeToken()
         {
             var AdobeParams = new Dictionary<string, string>
             {
-                { "client_id", _configuration["AdobeAPI:ClientID"] },
-                { "client_secret", _configuration["AdobeAPI:ClientSecret"] },
-                { "jwt_token", GenereateAdobeAuthJWTToken(_certificate) }
+                { "client_id", "AdobeAPI:ClientID" },
+                { "client_secret", "AdobeAPI:ClientSecret" },
+                { "jwt_token", "" }
             };
 
             var getAdobeToken = await _httpClient.PostAsync("", new FormUrlEncodedContent(AdobeParams));

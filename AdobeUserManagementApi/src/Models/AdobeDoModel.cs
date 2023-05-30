@@ -10,6 +10,6 @@ namespace AdobeUserManagementApi.src.Models
     public class AdobeDoModel<T> where T : class
     {
         [JsonPropertyName("do")]
-        public List<T> DO { get; set; }
+        public List<T> Do { get; set; }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.src.Calls.AdobeUser
+namespace AdobeUserManagementApi.src.Requests.Users
 {
-    internal class CreateEnterpriseID
+    public class RemoveUserFromGroup
     {
     }
 }

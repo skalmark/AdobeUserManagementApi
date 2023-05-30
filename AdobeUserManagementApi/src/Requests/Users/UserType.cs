@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.src.Calls.AdobeUser
+namespace AdobeUserManagementApi.src.Requests.Users
 {
-    public class CreateAdobeID
+    public enum UserType
     {
+        AdobeID,
+        EnterPriseID,
+        FederateID,
     }
 }
