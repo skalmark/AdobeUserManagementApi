@@ -8,5 +8,6 @@ namespace AdobeUserManagementApi.src.Requests.Users
 {
     public class GetAllUsers
     {
+
     }
 }

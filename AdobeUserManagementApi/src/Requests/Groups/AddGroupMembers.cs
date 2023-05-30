@@ -27,10 +27,7 @@ namespace AdobeUserManagementApi.src.Requests.Groups
                 Usergroup = groupName,
                 Do = new List<AddMembersModel>()
                 {
-                    new AddMembersModel()
-                    {
-                        AddMembers = new AddMembers(members)
-                    }
+                    new AddMembersModel(members)
                 }
             };
 
