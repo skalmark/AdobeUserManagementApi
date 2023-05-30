@@ -32,4 +32,27 @@ namespace AdobeUserManagementApi.src.Models.Users
         [JsonPropertyName("type")]
         public string Type { get;  }
     }
+
+
+    public class Test1
+    {
+        public Test1(List<string> members)
+        {
+            this.test = test;
+        }
+
+        public Test2 test { get; set; }
+    }
+
+    public class Test2
+    {
+        public Test2(List<string> members)
+        {
+            Members = members;
+        }
+
+        public List<string> Members { get; }
+    }
 }
+
+

@@ -28,10 +28,7 @@ namespace AdobeUserManagementApi.src.Requests.Groups
                 Usergroup = groupName,
                 Do = new List<RemoveMembersModel>()
                 {
-                    new RemoveMembersModel()
-                    {
-                        RemoveMembers = new RemoveMembers(members)
-                    }
+                    new RemoveMembersModel(members)
                 }
             };
 

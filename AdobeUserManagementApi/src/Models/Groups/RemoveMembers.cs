@@ -9,8 +9,12 @@ namespace AdobeUserManagementApi.src.Models.Groups
 {
     public class RemoveMembersModel
     {
+        public RemoveMembersModel(List<string> members)
+        {
+            RemoveMembers = new RemoveMembers(members);
+        }
         [JsonPropertyName("remove")]
-        public RemoveMembers RemoveMembers { get; set; }
+        public RemoveMembers RemoveMembers { get; }
     }
 
     public class RemoveMembers
