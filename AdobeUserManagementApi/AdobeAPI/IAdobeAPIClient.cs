@@ -1,9 +1,9 @@
-﻿using AdobeUserManagementApi.src.Models;
+﻿using AdobeUserManagementApi.Models;
 
-namespace AdobeUserManagementApi.src.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI
 {
-    public interface IAdobeAPI
-    { 
+    public interface IAdobeAPIClient
+    {
         Task<T> CallAdobeUserManagementAPI<T>(HttpRequestMessage httpRequestMessage, CancellationToken cancellationtoken);
     }
 }

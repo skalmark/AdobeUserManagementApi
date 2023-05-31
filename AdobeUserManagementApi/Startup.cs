@@ -50,7 +50,7 @@ namespace AdobeUserManagementApi
 
             services.AddHttpClient<AdobeToken>();
 
-            services.AddHttpClient<IAdobeClient, AdobeClient>(HttpClient =>
+            services.AddHttpClient<IAdobeAPIClient, AdobeAPIClient>(HttpClient =>
             {
                 HttpClient.BaseAddress = new Uri("https://usermanagement.adobe.io");
                 HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

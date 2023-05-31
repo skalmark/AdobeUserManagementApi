@@ -11,9 +11,9 @@ namespace AdobeUserManagementApi.Requests.Groups
 {
     public class AddGroupMembers
     {
-        private readonly IAdobeClient _adobeAPI;
+        private readonly IAdobeAPIClient _adobeAPI;
 
-        public AddGroupMembers(IAdobeClient adobeAPI)
+        public AddGroupMembers(IAdobeAPIClient adobeAPI)
         {
             _adobeAPI = adobeAPI;
         }

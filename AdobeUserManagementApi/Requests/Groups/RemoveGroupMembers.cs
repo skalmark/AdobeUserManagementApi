@@ -12,9 +12,9 @@ namespace AdobeUserManagementApi.Requests.Groups
 {
     public class RemoveGroupMembers
     {
-        private readonly IAdobeClient _adobeAPI;
+        private readonly IAdobeAPIClient _adobeAPI;
 
-        public RemoveGroupMembers(IAdobeClient adobeAPI)
+        public RemoveGroupMembers(IAdobeAPIClient adobeAPI)
         {
             _adobeAPI = adobeAPI;
         }

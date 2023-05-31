@@ -12,9 +12,9 @@ namespace AdobeUserManagementApi.Requests.Groups
     public class AddRemoveMembers
     {
 
-        private readonly IAdobeClient _adobeAPI;
+        private readonly IAdobeAPIClient _adobeAPI;
 
-        public AddRemoveMembers(IAdobeClient adobeAPI)
+        public AddRemoveMembers(IAdobeAPIClient adobeAPI)
         {
             _adobeAPI = adobeAPI;
         }
