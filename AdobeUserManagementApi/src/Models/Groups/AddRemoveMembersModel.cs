@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.src.Models.Groups
@@ -10,10 +11,12 @@ namespace AdobeUserManagementApi.src.Models.Groups
     {
         public AddRemoveMembersModel(List<string> addMembers, List<string> removeMembers)
         {
-            AddMembers = new AddMembersModel(addMembers);
-            RemoveMembers = new RemoveMembersModel(removeMembers);
+            AddMembers = new AddMembers(addMembers);
+            RemoveMembers = new RemoveMembers(removeMembers);
         }
-        public AddMembersModel AddMembers { get; }
-        public RemoveMembersModel RemoveMembers { get;}
+        [JsonPropertyName("add")]
+        public AddMembers AddMembers { get; }
+        [JsonPropertyName("remove")]
+        public RemoveMembers RemoveMembers { get;}
     }
 }
