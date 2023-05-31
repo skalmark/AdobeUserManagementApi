@@ -1,10 +1,6 @@
 ﻿using AdobeUserManagementApi.src.Models.Groups;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
+
 
 namespace AdobeUserManagementApiTests.JsonSerilize.Groups
 {
@@ -13,7 +9,7 @@ namespace AdobeUserManagementApiTests.JsonSerilize.Groups
         [Fact]
         public void TestAddremove()
         {
-            const string expected = "{\"usergroup\":\"TestGroup\",\"do\":[{\"add\":{\"user\":[\"test1@test.com\",\"test2@test.com\"]},\"remove\":{\"user\":[\"test3@test.com\",\"test4@test.com\"]}}]}";
+            const string expected = "[{\"usergroup\":\"TestGroup\",\"do\":[{\"add\":{\"user\":[\"test1@test.com\",\"test2@test.com\"]},\"remove\":{\"user\":[\"test3@test.com\",\"test4@test.com\"]}}]}]";
 
             List<string> addMembers = new()
             {
@@ -36,7 +32,7 @@ namespace AdobeUserManagementApiTests.JsonSerilize.Groups
                 }
             };
 
-            var json = JsonSerializer.Serialize(AddRemove);
+            var json = JsonSerializer.Serialize(new[] { AddRemove });
 
             Assert.Equal(expected, json);
         }
