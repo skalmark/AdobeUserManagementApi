@@ -1,4 +1,4 @@
-﻿using AdobeUserManagementApi.src.Models.Groups;
+﻿using AdobeUserManagementApi.Models.Groups;
 using System.Text.Json;
 
 
