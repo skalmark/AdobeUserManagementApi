@@ -12,9 +12,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using static AdobeUserManagementApi.src.AdobeAPI.AdobeToken;
+using static AdobeUserManagementApi.AdobeAPI.AdobeToken;
 
-namespace AdobeUserManagementApi.src.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI
 {
     public class AdobeToken
     {
@@ -35,7 +35,7 @@ namespace AdobeUserManagementApi.src.AdobeAPI
             {
                 return await GenerateToken(cancellationToken);
             }
-            else if(adobeAPISettings.Value.TokenLifeTime < DateTimeOffset.Now)
+            else if (adobeAPISettings.Value.TokenLifeTime < DateTimeOffset.Now)
             {
                 return await GenerateToken(cancellationToken);
             }

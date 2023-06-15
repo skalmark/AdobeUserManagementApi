@@ -9,7 +9,7 @@ namespace AdobeUserManagementApi
 {
     public static class Startup
     {
-
+        //https://adobe-apiplatform.github.io/umapi-documentation/en/api/ActionsRef.html
         public static IServiceCollection AddAdobeManagmentAPI([NotNull] this IServiceCollection services, [NotNull] AdobeAPISettings adobeTokenSettings)
         {
             if (adobeTokenSettings.ClientSecret is null)

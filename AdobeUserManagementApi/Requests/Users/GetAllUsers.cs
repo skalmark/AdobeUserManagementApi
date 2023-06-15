@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.src.Requests.Users
+namespace AdobeUserManagementApi.Requests.Users
 {
     public class GetAllUsers
     {

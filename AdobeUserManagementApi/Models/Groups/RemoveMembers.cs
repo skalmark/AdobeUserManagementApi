@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.src.Models.Groups
+namespace AdobeUserManagementApi.Models.Groups
 {
     public class RemoveMembersModel
     {
@@ -20,7 +20,7 @@ namespace AdobeUserManagementApi.src.Models.Groups
     public class RemoveMembers
     {
         public RemoveMembers(List<string> members)
-        { 
+        {
             Members = members;
         }
         [JsonPropertyName("user")]

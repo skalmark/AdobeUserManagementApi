@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.AdobeAPI
 {
-    public class AdobeClient : IAdobeClient
+    public class AdobeAPIClient : IAdobeAPIClient
     {
         private readonly AdobeToken _adobeToken;
         private readonly HttpClient _httpClient;
 
-        public AdobeClient(HttpClient httpClient, AdobeToken adobeToken, ILogger<AdobeClient> logger)
+        public AdobeAPIClient(HttpClient httpClient, AdobeToken adobeToken, ILogger<AdobeAPIClient> logger)
         {
             _httpClient = httpClient;
             _adobeToken = adobeToken;

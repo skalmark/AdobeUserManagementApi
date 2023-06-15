@@ -16,9 +16,6 @@ namespace AdobeUserManagementApi
             _adobeAPIClient = adobeAPIClient;
         }
 
-        public async Task GetAllUsers()
-        {
 
-        }
     }
 }

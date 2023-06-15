@@ -1,16 +1,15 @@
-﻿using AdobeUserManagementApi.src.AdobeAPI;
-using AdobeUserManagementApi.src.Models;
-using AdobeUserManagementApi.src.Models.Users;
-using AdobeUserManagementApi.src.Responses.Users;
+﻿using AdobeUserManagementApi.AdobeAPI;
+using AdobeUserManagementApi.Models;
+using AdobeUserManagementApi.Models.Users;
 using System.Text;
 
-namespace AdobeUserManagementApi.src.Requests.Users
+namespace AdobeUserManagementApi.Requests.Users
 {
     public class CreateAdobeUserRequest
     {
-        private readonly IAdobeAPI _adobeAPI;
+        private readonly IAdobeAPIClient _adobeAPI;
 
-        public CreateAdobeUserRequest(IAdobeAPI adobeAPI)
+        public CreateAdobeUserRequest(IAdobeAPIClient adobeAPI)
         {
             _adobeAPI = adobeAPI;
         }

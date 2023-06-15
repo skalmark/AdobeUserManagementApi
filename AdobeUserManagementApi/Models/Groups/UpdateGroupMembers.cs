@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using AdobeUserManagementApi.Models;
 
-namespace AdobeUserManagementApi.src.Models.Groups
+namespace AdobeUserManagementApi.Models.Groups
 {
     public class UpdateGroupMembers<T> : AdobeDoModel<T> where T : class
     {

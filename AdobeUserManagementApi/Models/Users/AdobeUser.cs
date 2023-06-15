@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 
-namespace AdobeUserManagementApi.src.Models.Users
+namespace AdobeUserManagementApi.Models.Users
 {
     public class AdobeUser
     {
@@ -26,7 +26,7 @@ namespace AdobeUserManagementApi.src.Models.Users
         [JsonPropertyName("domain")]
         public string Domain { get; }
         [JsonPropertyName("type")]
-        public string Type { get;  }
+        public string Type { get; }
     }
 }
 

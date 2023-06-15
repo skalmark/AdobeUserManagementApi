@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.src.Models.Groups
+namespace AdobeUserManagementApi.Models.Groups
 {
     public class AddRemoveMembersModel
     {
@@ -17,6 +17,6 @@ namespace AdobeUserManagementApi.src.Models.Groups
         [JsonPropertyName("add")]
         public AddMembers AddMembers { get; }
         [JsonPropertyName("remove")]
-        public RemoveMembers RemoveMembers { get;}
+        public RemoveMembers RemoveMembers { get; }
     }
 }
