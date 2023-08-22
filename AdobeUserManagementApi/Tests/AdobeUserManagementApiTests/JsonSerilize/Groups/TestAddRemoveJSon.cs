@@ -17,7 +17,7 @@ namespace AdobeUserManagementApiTests.JsonSerilize.Groups
                 "test2@test.com"
             };
 
-            List<string> removeMember = new List<string>()
+            List<string> removeMember = new()
             {
                 "test3@test.com",
                 "test4@test.com"

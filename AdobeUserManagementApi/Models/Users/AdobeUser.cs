@@ -3,7 +3,7 @@
 
 namespace AdobeUserManagementApi.Models.Users
 {
-    public class AdobeUser
+    public sealed class AdobeUser
     {
         [JsonPropertyName("id")]
         public string AdobeID { get; }

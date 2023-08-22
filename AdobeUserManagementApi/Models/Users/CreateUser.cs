@@ -3,7 +3,7 @@
 
 namespace AdobeUserManagementApi.Models.Users
 {
-    public class CreateUserAdobeID
+    public sealed class CreateUserAdobeID
     {
         public CreateUserAdobeID(CreateUserBase createUserBase)
         {
@@ -13,7 +13,7 @@ namespace AdobeUserManagementApi.Models.Users
         public CreateUserBase AddAdobeID { get; }
     }
 
-    public class CreateUserEnterpriseID
+    public sealed class CreateUserEnterpriseID
     {
         public CreateUserEnterpriseID(CreateUserBase createUserBase)
         {
@@ -24,7 +24,7 @@ namespace AdobeUserManagementApi.Models.Users
         public CreateUserBase CreateEnterpriseID { get; }
     }
 
-    public class CreateUserFederatedID
+     public sealed class CreateUserFederatedID
     {
         public CreateUserFederatedID(CreateUserBase createUserBase)
         {

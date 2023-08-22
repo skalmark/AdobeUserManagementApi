@@ -23,6 +23,7 @@ namespace AdobeUserManagementApi.AdobeAPI
             _adobeToken = adobeToken;
         }
 
+
         public async Task<T> CallAdobeUserManagementAPI<T>(HttpRequestMessage httpRequestMessage, CancellationToken cancellationtoken)
         {
             httpRequestMessage.Headers.Authorization = await _adobeToken.GetAdobeToken(cancellationtoken);

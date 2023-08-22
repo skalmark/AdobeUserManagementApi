@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.Models.Groups
 {
-    public class AddRemoveMembersModel
+    public sealed class AddRemoveMembersModel
     {
         public AddRemoveMembersModel(List<string> addMembers, List<string> removeMembers)
         {

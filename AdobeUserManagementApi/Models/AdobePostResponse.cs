@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.Models
 {
-    public class AdobePostResponse
+    public sealed class AdobePostResponse
     {
         public int Completed { get; }
         public int NotCompleted { get; }

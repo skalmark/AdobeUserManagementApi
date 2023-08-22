@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.Models.Users
 {
-    public class CreateUserBase
+    public sealed class CreateUserBase
     {
         public string EmailAddress { get; set; }
         public string Country { get; set; }

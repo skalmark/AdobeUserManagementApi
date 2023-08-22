@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.Models.Groups
 {
-    public class AddMembersModel
+    public sealed class AddMembersModel
     {
         public AddMembersModel(List<string> members)
         {
@@ -17,7 +17,7 @@ namespace AdobeUserManagementApi.Models.Groups
         public AddMembers AddMembers { get; }
     }
 
-    public class AddMembers
+    public sealed class AddMembers
     {
         public AddMembers(List<string> members)
         {

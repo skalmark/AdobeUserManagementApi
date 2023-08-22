@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.Models.Groups
 {
-    public class AdobeGroupData
+    public sealed class AdobeGroupData
     {
         [JsonPropertyName("groupId")]
         public int GroupId { get; set; }

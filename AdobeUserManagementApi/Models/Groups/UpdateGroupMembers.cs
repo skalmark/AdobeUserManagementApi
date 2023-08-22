@@ -8,7 +8,7 @@ using AdobeUserManagementApi.Models;
 
 namespace AdobeUserManagementApi.Models.Groups
 {
-    public class UpdateGroupMembers<T> : AdobeDoModel<T> where T : class
+    public sealed class UpdateGroupMembers<T> : AdobeDoModel<T> where T : class
     {
         [JsonPropertyName("usergroup")]
         public string Usergroup { get; set; }

@@ -8,7 +8,7 @@ using AdobeUserManagementApi.Models;
 
 namespace AdobeUserManagementApi.Models.Users
 {
-    internal class AdobeUserRequest<T> : AdobeDoModel<T> where T : class
+    public sealed class AdobeUserRequest<T> : AdobeDoModel<T> where T : class
     {
         [JsonPropertyName("user")]
         public string User { get; set; }

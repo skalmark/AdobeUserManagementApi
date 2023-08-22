@@ -2,7 +2,7 @@
 
 namespace AdobeUserManagementApi.Models
 {
-    public class AdobeError
+    public sealed class AdobeError
     {
         [JsonPropertyName("index")]
         public int Index { get; }
