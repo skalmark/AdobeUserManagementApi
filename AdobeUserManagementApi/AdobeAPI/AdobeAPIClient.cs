@@ -14,8 +14,12 @@ namespace AdobeUserManagementApi.AdobeAPI
 {
     public class AdobeAPIClient : IAdobeAPIClient
     {
+        //useractions 10 per minute
+        //regular gets 25 per minute
+
         private readonly AdobeToken _adobeToken;
         private readonly HttpClient _httpClient;
+        
 
         public AdobeAPIClient(HttpClient httpClient, AdobeToken adobeToken, ILogger<AdobeAPIClient> logger)
         {
