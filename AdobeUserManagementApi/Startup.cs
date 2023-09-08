@@ -1,6 +1,7 @@
 ﻿using AdobeUserManagementApi.AdobeAPI;
 using AdobeUserManagementApi.Options;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 
@@ -50,19 +51,18 @@ namespace AdobeUserManagementApi
 
             services.AddHttpClient<AdobeToken>();
 
-            services.AddHttpClient<IAdobeAPIClient, AdobeAPIClient>(HttpClient =>
+            services.AddHttpClient<AdobeAPIClient>(HttpClient =>
             {
                 HttpClient.BaseAddress = new Uri("https://usermanagement.adobe.io");
                 HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpClient.DefaultRequestHeaders.Add("X-Api-Key", adobeTokenSettings.Clientid);
             });
 
-
+            services.AddSingleton<AdobePostClient>();
 
 
             return services;
         }
-
 
 
     }

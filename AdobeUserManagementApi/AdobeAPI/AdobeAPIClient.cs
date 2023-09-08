@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.AdobeAPI
 {
-    public class AdobeAPIClient : IAdobeAPIClient
+    public class AdobeAPIClient
     {
-        //useractions 10 per minute
+        
         //regular gets 25 per minute
 
         private readonly AdobeToken _adobeToken;
