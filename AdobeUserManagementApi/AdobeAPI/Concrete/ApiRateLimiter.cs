@@ -6,20 +6,20 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI.Concrete
 {
-    public abstract class RateLimiter
+    public abstract class ApiRateLimiter
     {
         private readonly SemaphoreSlim _semaphore;
         private readonly int _maxRequestsPerMinute;
         private readonly TimeSpan _interval;
         private DateTime _lastResetTime;
         private int _totalRequests;
-        public RateLimiter(int maxRequestsPerMinute) 
+        public ApiRateLimiter(int maxRequestsPerMinute)
         {
             _semaphore = new SemaphoreSlim(1);
             _maxRequestsPerMinute = maxRequestsPerMinute;
-            _interval = TimeSpan.FromSeconds(60 /_maxRequestsPerMinute);
+            _interval = TimeSpan.FromSeconds(60 / _maxRequestsPerMinute);
             _lastResetTime = DateTime.Now;
         }
 

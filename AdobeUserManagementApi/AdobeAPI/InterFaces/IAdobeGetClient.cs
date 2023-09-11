@@ -1,4 +1,4 @@
-﻿namespace AdobeUserManagementApi.AdobeAPI
+﻿namespace AdobeUserManagementApi.AdobeAPI.InterFaces
 {
     public interface IAdobeGetClient
     {

@@ -1,4 +1,4 @@
-﻿using AdobeUserManagementApi.AdobeAPI;
+﻿using AdobeUserManagementApi.AdobeAPI.InterFaces;
 using AdobeUserManagementApi.Models;
 using AdobeUserManagementApi.Models.Users;
 using System.Text;

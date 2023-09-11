@@ -1,4 +1,4 @@
-﻿using AdobeUserManagementApi.AdobeAPI;
+﻿using AdobeUserManagementApi.AdobeAPI.InterFaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

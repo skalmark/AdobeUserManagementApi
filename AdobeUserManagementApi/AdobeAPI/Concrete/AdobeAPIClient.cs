@@ -10,16 +10,14 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI.Concrete
 {
-    public class AdobeAPIClient
+    public sealed class AdobeAPIClient
     {
-        
-        //regular gets 25 per minute
 
         private readonly AdobeToken _adobeToken;
         private readonly HttpClient _httpClient;
-        
+
 
         public AdobeAPIClient(HttpClient httpClient, AdobeToken adobeToken, ILogger<AdobeAPIClient> logger)
         {
@@ -28,7 +26,7 @@ namespace AdobeUserManagementApi.AdobeAPI
         }
 
 
-        public async Task<T> CallAdobeUserManagementAPI<T>(HttpRequestMessage httpRequestMessage, CancellationToken cancellationtoken)
+        internal async Task<T> CallAdobeUserManagementAPI<T>(HttpRequestMessage httpRequestMessage, CancellationToken cancellationtoken)
         {
             httpRequestMessage.Headers.Authorization = await _adobeToken.GetAdobeToken(cancellationtoken);
             var response = await _httpClient.SendAsync(httpRequestMessage, cancellationtoken);

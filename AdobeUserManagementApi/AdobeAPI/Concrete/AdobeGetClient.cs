@@ -1,4 +1,5 @@
-﻿using AdobeUserManagementApi.Models;
+﻿using AdobeUserManagementApi.AdobeAPI.InterFaces;
+using AdobeUserManagementApi.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -6,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI.Concrete
 {
-    public class AdobeGetClient : RateLimiter, IAdobeGetClient
+    public sealed class AdobeGetClient : ApiRateLimiter, IAdobeGetClient
     {
         private readonly AdobeAPIClient _adobeAPIClient;
 
 
-        public AdobeGetClient(AdobeAPIClient adobeAPIClient, int maxRequests) : base(maxRequests)
+        public AdobeGetClient(AdobeAPIClient adobeAPIClient, int maxRequestsPerMinute) : base(maxRequestsPerMinute)
         {
             _adobeAPIClient = adobeAPIClient;
         }
@@ -23,7 +24,6 @@ namespace AdobeUserManagementApi.AdobeAPI
             await CheckIfRequestsIsOutOfBound();
 
             return await _adobeAPIClient.CallAdobeUserManagementAPI<T>(httpRequestMessage, cancellationToken);
-
         }
 
     }

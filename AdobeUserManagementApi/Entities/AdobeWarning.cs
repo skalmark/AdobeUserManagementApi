@@ -2,7 +2,7 @@
 
 namespace AdobeUserManagementApi.Models
 {
-    public class AdobeWarning
+    public sealed class AdobeWarning
     {
         [JsonPropertyName("warningCode")]
         public string WarningCode { get; }

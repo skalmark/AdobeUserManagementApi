@@ -1,6 +1,6 @@
 ﻿using AdobeUserManagementApi.Models;
 
-namespace AdobeUserManagementApi.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI.InterFaces
 {
     public interface IAdobePostClient
     {

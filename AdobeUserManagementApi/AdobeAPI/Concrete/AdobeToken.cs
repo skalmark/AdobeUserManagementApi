@@ -12,11 +12,11 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using static AdobeUserManagementApi.AdobeAPI.AdobeToken;
+using static AdobeUserManagementApi.AdobeAPI.Concrete.AdobeToken;
 
-namespace AdobeUserManagementApi.AdobeAPI
+namespace AdobeUserManagementApi.AdobeAPI.Concrete
 {
-    public class AdobeToken
+    public sealed class AdobeToken
     {
         private const string _baseUrl = "https://ims-na1.adobelogin.com/ims/token/v3?client_id=";
 
