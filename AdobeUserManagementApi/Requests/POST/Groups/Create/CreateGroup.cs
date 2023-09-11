@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.Requests.Users
+namespace AdobeUserManagementApi.Requests.POST.Groups.Create
 {
-    public enum UserType
+    public class CreateGroup
     {
-        AdobeID,
-        EnterPriseID,
-        FederateID,
     }
 }

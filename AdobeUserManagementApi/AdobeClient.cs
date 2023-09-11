@@ -1,4 +1,6 @@
 ﻿using AdobeUserManagementApi.AdobeAPI.InterFaces;
+using AdobeUserManagementApi.Options;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi
 {
-    public class AdobeClient
+    public sealed class AdobeClient
     {
-        private readonly IAdobeAPIClient _adobeAPIClient;
+        private readonly IAdobeGetClient _adobeGetClient;
+        private readonly IAdobePostClient _adobePostClient;
+        private readonly string _adobeOrgID;
+        private readonly string _adobeOrgID;
 
-        public AdobeClient(IAdobeAPIClient adobeAPIClient)
+        public AdobeClient(IAdobeGetClient adobeGetClient, IAdobePostClient adobePostClient, IOptions<AdobeAPISettings> adobeAPISettings)
         {
-            _adobeAPIClient = adobeAPIClient;
+            _adobeGetClient = adobeGetClient;
+            _adobePostClient = adobePostClient;
+            _adobeOrgID = adobeAPISettings.Value.OrgID;
         }
 
 

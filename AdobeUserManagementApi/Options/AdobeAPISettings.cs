@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.Options
 {
-    public class AdobeAPISettings
+    public sealed class AdobeAPISettings
     {
         public string Clientid { get; set; }
         public string ClientSecret { get; set; }

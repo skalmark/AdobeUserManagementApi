@@ -8,18 +8,18 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.Requests.Groups
+namespace AdobeUserManagementApi.Requests.POST.Groups.Update
 {
     public class RemoveGroupMembers
     {
-        private readonly IAdobeAPIClient _adobeAPI;
+        private readonly IAdobePostClient _adobeAPI;
 
-        public RemoveGroupMembers(IAdobeAPIClient adobeAPI)
+        public RemoveGroupMembers(IAdobePostClient adobeAPI)
         {
             _adobeAPI = adobeAPI;
         }
 
-        public async Task<AdobePostResponse> RemoveMembers(string groupName, List<string> members)
+        public async Task<AdobePostResponse> RemoveMembers(string groupName, List<string> members, CancellationToken cancellationToken)
         {
             //Limit of 10 users per request
 

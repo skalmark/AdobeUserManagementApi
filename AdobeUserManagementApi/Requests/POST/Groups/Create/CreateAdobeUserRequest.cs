@@ -1,9 +1,11 @@
 ﻿using AdobeUserManagementApi.AdobeAPI.InterFaces;
 using AdobeUserManagementApi.Models;
 using AdobeUserManagementApi.Models.Users;
+using AdobeUserManagementApi.Requests.Enums;
+using AdobeUserManagementApi.Requests.Users;
 using System.Text;
 
-namespace AdobeUserManagementApi.Requests.Users
+namespace AdobeUserManagementApi.Requests.POST.Groups.Create
 {
     public class CreateAdobeUserRequest
     {

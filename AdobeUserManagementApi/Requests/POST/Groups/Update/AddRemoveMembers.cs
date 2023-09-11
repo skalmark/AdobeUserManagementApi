@@ -7,19 +7,19 @@ using AdobeUserManagementApi.AdobeAPI.InterFaces;
 using AdobeUserManagementApi.Models;
 using AdobeUserManagementApi.Models.Groups;
 
-namespace AdobeUserManagementApi.Requests.Groups
+namespace AdobeUserManagementApi.Requests.POST.Groups.Update
 {
-    public class AddRemoveMembers
+    internal class AddRemoveMembers
     {
 
-        private readonly IAdobeAPIClient _adobeAPI;
+        private readonly IAdobePostClient _adobeAPI;
 
-        public AddRemoveMembers(IAdobeAPIClient adobeAPI)
+        internal AddRemoveMembers(IAdobePostClient adobeAPI)
         {
             _adobeAPI = adobeAPI;
         }
 
-        public async Task<AdobePostResponse> AddMembers(string groupName, List<string> Addmembers, List<string> removeMembers)
+        internal async Task<AdobePostResponse> AddMembers(string groupName, List<string> Addmembers, List<string> removeMembers, CancellationToken cancellationToken)
         {
             //Limit of 10 users per request
 

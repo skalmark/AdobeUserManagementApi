@@ -14,10 +14,8 @@ namespace AdobeUserManagementApi.AdobeAPI.Concrete
 {
     public sealed class AdobeAPIClient
     {
-
         private readonly AdobeToken _adobeToken;
         private readonly HttpClient _httpClient;
-
 
         public AdobeAPIClient(HttpClient httpClient, AdobeToken adobeToken, ILogger<AdobeAPIClient> logger)
         {
@@ -25,11 +23,12 @@ namespace AdobeUserManagementApi.AdobeAPI.Concrete
             _adobeToken = adobeToken;
         }
 
-
         internal async Task<T> CallAdobeUserManagementAPI<T>(HttpRequestMessage httpRequestMessage, CancellationToken cancellationtoken)
         {
+            httpRequestMessage.RequestUri = new Uri(_httpClient.BaseAddress + httpRequestMessage.RequestUri.ToString());
             httpRequestMessage.Headers.Authorization = await _adobeToken.GetAdobeToken(cancellationtoken);
             var response = await _httpClient.SendAsync(httpRequestMessage, cancellationtoken);
+            
 
             response.EnsureSuccessStatusCode();
 
@@ -41,7 +40,6 @@ namespace AdobeUserManagementApi.AdobeAPI.Concrete
             }
             else
                 return default;
-
         }
 
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdobeUserManagementApi.Requests.Users
+namespace AdobeUserManagementApi.Requests.GET.Groups
 {
-    public class AddUserToGroup
+    internal class GetGroup
     {
     }
 }
