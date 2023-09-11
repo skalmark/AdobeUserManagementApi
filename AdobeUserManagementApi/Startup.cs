@@ -57,8 +57,11 @@ namespace AdobeUserManagementApi
                 HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpClient.DefaultRequestHeaders.Add("X-Api-Key", adobeTokenSettings.Clientid);
             });
+            services.AddSingleton<IAdobeGetClient, AdobeGetClient>(provider =>
+            new AdobeGetClient(provider.GetService<AdobeAPIClient>(), 25));
 
-            services.AddSingleton<AdobePostClient>();
+            services.AddSingleton<IAdobePostClient, AdobePostClient>(provider =>
+            new AdobePostClient(provider.GetService<AdobeAPIClient>(), 10));
 
 
             return services;

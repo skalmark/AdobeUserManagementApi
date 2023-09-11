@@ -8,31 +8,23 @@ using System.Threading.Tasks;
 
 namespace AdobeUserManagementApi.AdobeAPI
 {
-    public class AdobePostClient : RateLimiter
+    public class AdobePostClient : RateLimiter, IAdobePostClient
     {
         private readonly AdobeAPIClient _adobeAPIClient;
 
 
-        public AdobePostClient(AdobeAPIClient adobeAPIClient, int maxRequests) : base (maxRequests) 
+        public AdobePostClient(AdobeAPIClient adobeAPIClient, int maxRequests) : base(maxRequests)
         {
             _adobeAPIClient = adobeAPIClient;
         }
 
         public async Task<AdobePostResponse> AdobeTryPostAsync(HttpRequestMessage httpRequestMessage, CancellationToken cancellationToken)
         {
-            await ResetIfNeededAsync();
+            await CheckIfRequestsIsOutOfBound();
 
-            if (_semaphore.Wait(0, cancellationToken))
-            {
-                return await _adobeAPIClient.CallAdobeUserManagementAPI<AdobePostResponse>(httpRequestMessage, cancellationToken);
-            }
+            return await _adobeAPIClient.CallAdobeUserManagementAPI<AdobePostResponse>(httpRequestMessage, cancellationToken);
 
-            return new AdobePostResponse(); ; // Rate limit exceeded.
-
-            
         }
-        //useractions 10 per minute
-
 
     }
 }
